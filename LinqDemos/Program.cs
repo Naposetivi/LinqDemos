@@ -1,7 +1,41 @@
-﻿using System.Collections;
+﻿using NUnit.Framework;
+using System.Collections;
 
 namespace LinqDemos
 {
+    [TestFixture]
+    class Program
+    {
+        [Test]
+        public void Test()
+        {
+            var a = new[] { 1, 2, 3 };
+            var b = new List<int> { 1, 2, 3 };
+
+            Assert.That(a, Is.EqualTo(b));
+
+            var c = new List<int> { 3, 2, 1 };
+            Assert.That(() => a, Is.EquivalentTo(c));
+        }
+
+
+        static void Main(string[] args)
+        {
+            //var p = new Params(1, 2, 3);
+
+            //foreach (var item in p)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //var person = new Person("Jon", "Odinson", "Smith");
+
+            //foreach (var item in person.Names)
+            //{
+            //    Console.WriteLine(item);
+            //}
+        }
+    }
 
     //public class Params : IEnumerable<int>
     //{
@@ -48,39 +82,4 @@ namespace LinqDemos
     //        }
     //    }
     //}
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            //var p = new Params(1, 2, 3);
-
-            //foreach (var item in p)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-            //var person = new Person("Jon", "Odinson", "Smith");
-
-            //foreach (var item in person.Names)
-            //{
-            //    Console.WriteLine(item);
-            //}
-        }
-    }
 }
-
-
-
-//From LINQPad
-
-
-//Console.WriteLine(Enumerable.Empty<int>());
-
-//Console.WriteLine(Enumerable.Repeat("hello", 3));
-
-//Console.WriteLine(Enumerable.Range(1, 10));
-
-//Console.WriteLine(Enumerable.Range('a', 'z' - 'a').Select(c => (char)c));
-
-//Console.WriteLine(Enumerable.Range(1, 10).Select(i => new string('x', i)));
